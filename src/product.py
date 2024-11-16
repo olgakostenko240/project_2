@@ -1,17 +1,38 @@
-from typing import Any
-
-
 class Product:
     name: str
     description: str
     price: int
     quantity: int
 
-    def __init__(self, name: Any, description: Any, price: Any, quantity: Any):
+
+    def __init__(self, name, description, price, quantity):
         self.name = name
         self.description = description
-        self.price = price
+        self.__price = price
         self.quantity = quantity
+
+
+    @classmethod
+    def new_product(cls, product_list):
+        name = product_list.get("name")
+        description = product_list.get("description")
+        price = product_list.get("price")
+        quantity = product_list.get("quantity")
+        return cls(name, description, price, quantity)
+
+
+    @property
+    def price(self):
+        return self.__price
+
+
+    @price.setter
+    def price(self, new_price: float):
+        if new_price > 0:
+            self.__price = new_price
+        elif  new_price <= 0:
+            self.__price = self.__price
+            print("Цена не должна быть нулевая или отрицательная")
 
 
 # if __name__ == "__main__":
@@ -33,3 +54,20 @@ class Product:
 #print(product3.description)
 #print(product3.price)
 #print(product3.quantity)
+#
+#new_product = Product.new_product(
+#{"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180000.0,
+#"quantity": 5})
+#
+#print(new_product.name)
+#print(new_product.description)
+#print(new_product.price)
+#print(new_product.quantity)
+#
+#new_product.price = 800
+#print(new_product.price)
+
+#new_product.price = -100
+#print(new_product.price)
+#new_product.price = 0
+#print(new_product.price)
