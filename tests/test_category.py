@@ -1,3 +1,4 @@
+import pytest
 from src.category import Category
 from src.product import Product
 
@@ -38,3 +39,18 @@ def test_list_product_property(category):
     assert category.products == ("Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.\n"
                                  "Iphone 15, 210000.0 руб. Остаток: 8 шт.\n"
                                  "Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.\n")
+
+
+def test_category_str(category):
+    assert str(category) == "Смартфоны, количество продуктов: 11 шт."
+
+
+def test_product_iterator(product_iterator):
+    iter(product_iterator)
+    assert product_iterator.index == 0
+    assert next(product_iterator).name == "Samsung Galaxy S23 Ultra"
+    assert next(product_iterator).name == "Iphone 15"
+    assert next(product_iterator).name == "Xiaomi Redmi Note 11"
+
+    with pytest.raises(StopIteration):
+        next(product_iterator)
