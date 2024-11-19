@@ -17,7 +17,10 @@ class Product:
 
 
     def __add__(self, other):
-        return self.__price * self.quantity + (other.__price * other.quantity)
+        if type(other) is Product:
+            return self.__price * self.quantity + (other.__price * other.quantity)
+        else:
+            raise TypeError
 
 
     @classmethod
@@ -52,34 +55,34 @@ class Product:
 # print(str(product2))
 # print(str(product3))
 #
-#print(product1.name)
-#print(product1.description)
-#print(product1.price)
-#print(product1.quantity)
+# print(product1.name)
+# print(product1.description)
+# print(product1.price)
+# print(product1.quantity)
 #
-#print(product2.name)
-#print(product2.description)
-#print(product2.price)
-#print(product2.quantity)
+# print(product2.name)
+# print(product2.description)
+# print(product2.price)
+# print(product2.quantity)
 #
-#print(product3.name)
-#print(product3.description)
-#print(product3.price)
-#print(product3.quantity)
+# print(product3.name)
+# print(product3.description)
+# print(product3.price)
+# print(product3.quantity)
 #
-#new_product = Product.new_product(
-#{"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180000.0,
-#"quantity": 5})
+# new_product = Product.new_product(
+# {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180000.0,
+# "quantity": 5})
 #
-#print(new_product.name)
-#print(new_product.description)
-#print(new_product.price)
-#print(new_product.quantity)
+# print(new_product.name)
+# print(new_product.description)
+# print(new_product.price)
+# print(new_product.quantity)
 #
-#new_product.price = 800
-#print(new_product.price)
-
-#new_product.price = -100
-#print(new_product.price)
-#new_product.price = 0
-#print(new_product.price)
+# new_product.price = 800
+# print(new_product.price)
+#
+# new_product.price = -100
+# print(new_product.price)
+# new_product.price = 0
+# print(new_product.price)
