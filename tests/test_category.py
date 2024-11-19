@@ -54,3 +54,18 @@ def test_product_iterator(product_iterator):
 
     with pytest.raises(StopIteration):
         next(product_iterator)
+
+def test_add_product_1():
+    category_test = Category(
+        name="Смартфоны",
+        description="Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
+        products=[]
+    )
+
+    with pytest.raises(TypeError):
+        category_test.add_product("Not a product")
+
+
+def test_category_smartphone_product(category, product_smartphone_1):
+    category.new_product = product_smartphone_1
+    assert category.products_in_list[-1].name == "Xiaomi Redmi Note 11"
