@@ -1,10 +1,10 @@
 import pytest
 
-from src.product import Product
 from src.category import Category
+from src.lawn_grass_product import LawnGrass
+from src.product import Product
 from src.product_iterator import ProductIterator
 from src.smartphone_product import Smartphone
-from src.lawn_grass_product import LawnGrass
 
 
 @pytest.fixture
@@ -33,7 +33,7 @@ def category_1():
         name="Телевизоры",
         description="Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником",
         products=[
-            Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7),
+            Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 7),
         ],
     )
 
@@ -55,8 +55,9 @@ def product_iterator(category):
 
 @pytest.fixture
 def product_smartphone_1():
-    return Smartphone("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5,
-                         "S23 Ultra", 256, "Серый")
+    return Smartphone(
+        "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5, "S23 Ultra", 256, "Серый"
+    )
 
 
 @pytest.fixture
@@ -72,5 +73,3 @@ def product_lawn_grass_1():
 @pytest.fixture
 def product_lawn_grass_2():
     return LawnGrass("Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый")
-
-

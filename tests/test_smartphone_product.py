@@ -1,4 +1,4 @@
-import  pytest
+import pytest
 
 
 def test_smartphone_product_init(product_smartphone_1):
@@ -11,10 +11,11 @@ def test_smartphone_product_init(product_smartphone_1):
     assert product_smartphone_1.memory == 256
     assert product_smartphone_1.color == "Серый"
 
+
 def test_smartphone_product_add(product_smartphone_1, product_smartphone_2):
     assert product_smartphone_1 + product_smartphone_2 == 2580000
 
 
 def test_smartphone_product_add_error(product_smartphone_1):
     with pytest.raises(TypeError):
-        result = product_smartphone_1 + 1
+        product_smartphone_1 + 1

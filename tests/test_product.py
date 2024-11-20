@@ -10,8 +10,14 @@ def test_product_init(product):
 
 
 def test_product_price():
-    produkt = Product.new_product(product_list={"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180000.0,
-         "quantity": 5})
+    produkt = Product.new_product(
+        product_list={
+            "name": "Samsung Galaxy S23 Ultra",
+            "description": "256GB, Серый цвет, 200MP камера",
+            "price": 180000.0,
+            "quantity": 5,
+        }
+    )
     produkt.name = "Samsung Galaxy S23 Ultra"
     produkt.description = "256GB, Серый цвет, 200MP камера"
     produkt.price = 180000.0
@@ -34,4 +40,4 @@ def test_product_add(product_1, product_2):
 
 def test_product_add_error(product_1):
     with pytest.raises(TypeError):
-        result = product_1 + 1
+        product_1 + 1
