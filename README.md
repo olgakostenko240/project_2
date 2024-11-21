@@ -36,3 +36,5 @@ pytest --cov
 ## Использование:
 
 1. Созданы два класса Product и Category
+2. Создан класс Smartphone, он является наследником класса Product. В данный класс добавлены свойства efficiency, model, memory, color.
+3. Создан класс LawnGrass, он является наследником класса Product. В данный класс добавлены свойства country, germination_period, color.
