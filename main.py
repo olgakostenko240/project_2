@@ -193,3 +193,19 @@ if __name__ == "__main__":
 
     print(Smartphone.__mro__)
     print(LawnGrass.__mro__)
+
+    try:
+        product_invalid = Product("Бракованный товар", "Неверное количество", 1000.0, 0)
+    except ValueError:
+        print(
+            "Возникла ошибка ValueError прерывающая работу программы, попытка добавить продукт с нулевым количеством"
+        )
+    else:
+        print("Не возникла ошибка ValueError при попытке добавить продукт с нулевым количеством")
+
+    category1 = Category("Смартфоны", "Категория смартфонов", [product1, product2, product3])
+
+    print(category1.middle_price())
+
+    category_empty = Category("Пустая категория", "Категория без продуктов", [])
+    print(category_empty.middle_price())

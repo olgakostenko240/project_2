@@ -67,3 +67,16 @@ def test_add_product_1():
 def test_category_smartphone_product(category, product_smartphone_1):
     category.new_product = product_smartphone_1
     assert category.products_in_list[-1].name == "Xiaomi Redmi Note 11"
+
+
+def test_middle_price(category, category_2):
+    assert category.middle_price() == 140333.33333333334
+    assert category_2.middle_price() == 0
+
+
+def test_add_product_error(category):
+    assert len(category.products_in_list) == 3
+
+    with pytest.raises(ValueError):
+        product_add = Product('55" QLED 4K', "Фоновая подсветка", 123000.0, 0)
+        category.product_list = product_add
